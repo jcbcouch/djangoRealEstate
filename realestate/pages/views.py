@@ -19,6 +19,7 @@ def about(request):
     realtors = Realtor.objects.order_by('-hire_date')
     mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
     context = {
+        'title': 'about',
         'realtors': realtors,
         'mvp_realtors': mvp_realtors
     }

@@ -12,6 +12,7 @@ def index(request):
   paged_listings = paginator.get_page(page)
 
   context = {
+    'title': 'listings',
     'listings': paged_listings
   }
 
@@ -21,6 +22,7 @@ def listing(request, listing_id):
   listing = get_object_or_404(Listing, pk=listing_id)
 
   context = {
+    'title': listing,
     'listing': listing
   }
 
@@ -55,6 +57,7 @@ def search(request):
       queryset_list = queryset_list.filter(price__lte=price)
 
   context = {
+    'title': 'search',
     'state_choices': state_choices,
     'bedroom_choices': bedroom_choices,
     'price_choices': price_choices,
